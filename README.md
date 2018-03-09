@@ -1,6 +1,7 @@
 # Hell Triangle
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0a7646b6ba4d4479a591614ef47077df)](https://www.codacy.com/app/ramonsantos/hell-triangle-challenge?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ramonsantos/hell-triangle-challenge&amp;utm_campaign=Badge_Grade)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
 ## Challenge
 
@@ -9,7 +10,7 @@ Given a triangle of numbers, find the maximum total from top to bottom.
 Example:
 
 
-```
+``` ruby
    6
   3 5
  9 7 1
