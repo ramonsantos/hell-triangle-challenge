@@ -8,9 +8,7 @@ class HellTriangle
 
   def max_total
     if valid_triangle?
-      calc_max_total
-
-      return max
+      return calc_max_total
     end
 
     nil
@@ -35,7 +33,9 @@ class HellTriangle
       end
     end
 
-   down_level_depth
+    down_level_depth
+
+    max
   end
 
   def valid_triangle?
@@ -50,7 +50,7 @@ class HellTriangle
     (0...triangle.length).each do |i|
       row = triangle[i]
 
-      if !(row.kind_of? Array) || row.length != (i + 1)
+      unless row.kind_of?(Array) && row.length == (i + 1)
         return false
       end
 

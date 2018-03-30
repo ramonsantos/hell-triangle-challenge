@@ -15,7 +15,7 @@ class TriangleHellTest < Minitest::Test
   end
 
   def test_triagle_with_different_kind_in_array
-    hell_triangle = HellTriangle.new([[1],[2, '3'], [4, 5, 6]])
+    hell_triangle = HellTriangle.new([[1], [2, '3'], [4, 5, 6]])
     assert_nil hell_triangle.max_total
   end
 
@@ -35,7 +35,7 @@ class TriangleHellTest < Minitest::Test
   end
 
   def test_max_total_two_rows
-    hell_triangle = HellTriangle.new([[1],[1,4]])
+    hell_triangle = HellTriangle.new([[1], [1,4]])
     assert_equal 5, hell_triangle.max_total
   end
 
@@ -46,13 +46,13 @@ class TriangleHellTest < Minitest::Test
       [1,9,1],
       [1,9,8,4],
       [1,1,9,1,1],
-      [1,1,1,1,1,9],
-      [1,1,1,9,1,1,1],
-      [1,1,1,9,1,1,1,1],
+      [1,1,1,9,1,9],
+      [1,1,9,1,1,1,1],
+      [1,1,9,1,1,1,1,1],
       [9,1,1,1,1,1,1,1,1],
-      [1,1,1,1,1,9,1,1,1,1]
+      [1,1,5,1,1,9,1,1,1,1]
     ])
-    assert_equal 74, hell_triangle.max_total
+    assert_equal 70, hell_triangle.max_total
   end
 
   def test_max_total_left_path
