@@ -20,9 +20,9 @@ class HellTriangle
     up_level_depth
 
     (index..index + 1).each do |i|
-      path[current_level_depth] = i
+      if current_level_depth < triangle.length
+        path[current_level_depth] = i
 
-      if current_level_depth < triangle.length + 1
         calc_max_total(i)
       else
         amount = (0...triangle.length).reduce(0) { |sum, j| sum + triangle[j][path[j]] }
@@ -32,6 +32,8 @@ class HellTriangle
         end
       end
     end
+
+    path.pop
 
     down_level_depth
 
