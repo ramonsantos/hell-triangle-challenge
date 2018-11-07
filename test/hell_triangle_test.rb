@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../../lib', __dir__)
 
 require 'minitest/autorun'
 require 'hell_triangle'
@@ -35,55 +35,61 @@ class TriangleHellTest < Minitest::Test
   end
 
   def test_max_total_two_rows
-    hell_triangle = HellTriangle.new([[1], [1,4]])
+    hell_triangle = HellTriangle.new([[1], [1, 4]])
     assert_equal 5, hell_triangle.max_total
   end
 
   def test_max_total_center_path
-    hell_triangle = HellTriangle.new([
-      [9],
-      [9,5],
-      [1,9,1],
-      [1,9,8,4],
-      [1,1,9,1,1],
-      [1,1,1,9,1,9],
-      [1,1,9,1,1,1,1],
-      [1,1,9,1,1,1,1,1],
-      [9,1,1,1,1,1,1,1,1],
-      [1,1,5,1,1,9,1,1,1,1]
-    ])
+    hell_triangle = HellTriangle.new(
+      [
+        [9],
+        [9, 5],
+        [1, 9, 1],
+        [1, 9, 8, 4],
+        [1, 1, 9, 1, 1],
+        [1, 1, 1, 9, 1, 9],
+        [1, 1, 9, 1, 1, 1, 1],
+        [1, 1, 9, 1, 1, 1, 1, 1],
+        [9, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 5, 1, 1, 9, 1, 1, 1, 1]
+      ]
+    )
     assert_equal 70, hell_triangle.max_total
   end
 
   def test_max_total_left_path
-    hell_triangle = HellTriangle.new([
-      [9],
-      [9,5],
-      [9,1,1],
-      [9,1,8,4],
-      [9,1,1,1,1],
-      [9,1,1,1,1,1],
-      [9,1,1,1,1,1,1],
-      [9,1,1,1,1,1,1,1],
-      [9,1,1,1,1,1,1,1,1],
-      [9,1,1,1,1,1,1,1,1,1]
-    ])
+    hell_triangle = HellTriangle.new(
+      [
+        [9],
+        [9, 5],
+        [9, 1, 1],
+        [9, 1, 8, 4],
+        [9, 1, 1, 1, 1],
+        [9, 1, 1, 1, 1, 1],
+        [9, 1, 1, 1, 1, 1, 1],
+        [9, 1, 1, 1, 1, 1, 1, 1],
+        [9, 1, 1, 1, 1, 1, 1, 1, 1],
+        [9, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+      ]
+    )
     assert_equal 90, hell_triangle.max_total
   end
 
   def test_max_total_right_path
-    hell_triangle = HellTriangle.new([
-      [9],
-      [1,9],
-      [1,1,9],
-      [1,1,8,9],
-      [1,1,1,1,9],
-      [1,1,1,1,1,9],
-      [1,1,1,1,1,1,9],
-      [1,1,1,1,1,1,1,9],
-      [1,1,1,1,1,1,1,1,9],
-      [1,1,1,1,1,1,1,1,1,9]
-    ])
+    hell_triangle = HellTriangle.new(
+      [
+        [9],
+        [1, 9],
+        [1, 1, 9],
+        [1, 1, 8, 9],
+        [1, 1, 1, 1, 9],
+        [1, 1, 1, 1, 1, 9],
+        [1, 1, 1, 1, 1, 1, 9],
+        [1, 1, 1, 1, 1, 1, 1, 9],
+        [1, 1, 1, 1, 1, 1, 1, 1, 9],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 9]
+      ]
+    )
     assert_equal 90, hell_triangle.max_total
   end
 end

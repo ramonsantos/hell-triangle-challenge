@@ -1,4 +1,8 @@
 class HellTriangle
+  attr_reader :current_level_depth
+  attr_reader :path
+  attr_reader :triangle
+
   def initialize(triangle)
     @triangle = triangle
     @current_level_depth = 0
@@ -7,9 +11,7 @@ class HellTriangle
   end
 
   def max_total
-    if valid_triangle?
-      return calc_max_total
-    end
+    return calc_max_total if valid_triangle?
 
     nil
   end
@@ -27,9 +29,7 @@ class HellTriangle
       else
         amount = (0...triangle.length).reduce(0) { |sum, j| sum + triangle[j][path[j]] }
 
-        if max < amount
-          max(amount)
-        end
+        max(amount) if max < amount
       end
     end
 
@@ -41,9 +41,7 @@ class HellTriangle
   end
 
   def valid_triangle?
-    if !(triangle.kind_of? Array) || triangle.empty?
-      return false
-    end
+    return false if !(triangle.is_a? Array) || triangle.empty?
 
     valid_triangle_row?
   end
@@ -52,34 +50,16 @@ class HellTriangle
     (0...triangle.length).each do |i|
       row = triangle[i]
 
-      unless row.kind_of?(Array) && row.length == (i + 1)
-        return false
-      end
+      return false unless row.is_a?(Array) && row.length == (i + 1)
 
-      row.each do |r|
-        return false unless r.kind_of? Integer
-      end
+      row.each { |r| return false unless r.is_a? Integer }
     end
-  end
-
-  def triangle
-    @triangle
-  end
-
-  def path
-    @path
   end
 
   def max(new_max = nil)
-    if new_max.nil?
-      return @max
-    end
+    return @max if new_max.nil?
 
     @max = new_max
-  end
-
-  def current_level_depth
-    @current_level_depth
   end
 
   def up_level_depth
